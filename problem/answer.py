@@ -109,24 +109,6 @@ class Ansatz:
         for i in range(4):
             phi = random.uniform(-np.pi, np.pi)
             onsite_gate.cp(phi, qr[i], qr[i+4])
-        
-        
-        # onsite_gate = UnboundParametricQuantumCircuit(self.n_qubits)
-        # eta = np.arcsin(np.sqrt(2)*np.sin(phi/4))
-        # xi = np.arctan(np.tan(eta)/np.sqrt(2))
-        
-        
-        # onsite_gate.add_RZ_gate(target + 0, phi/2)
-        # onsite_gate.add_RZ_gate(target + 1, phi/2)
-        # onsite_gate.add_RX_gate(target + 0, xi)
-        # onsite_gate.add_RX_gate(target + 1, -np.pi/2)
-        # onsite_gate.add_Z_gate(target + 0)
-        # onsite_gate = onsite_gate.combine(self.root_iS_gate(target))
-        # onsite_gate.add_Z_gate(target + 0)
-        # onsite_gate.add_RX_gate(target + 1, -2*eta)
-        # onsite_gate = onsite_gate.combine(self.root_iS_gate(target))
-        # onsite_gate.add_RX_gate(target + 0, xi)
-        # onsite_gate.add_RX_gate(target + 1, np.pi/2)
 
         onsite_gate = circuit_from_qiskit(qiskit_circuit = onsite_gate).gates
         
