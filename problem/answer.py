@@ -175,20 +175,16 @@ class Optimizer:
     
     def cost_fn(self, param_values):
         
-        print('test cost')
         estimate = self.estimator(self.hamiltonian, self.parametric_state, [param_values])
-        print('test cost passed')
         
         return estimate[0].value.real
     
     
     def grad_fn(self, param_values):
         
-        print('test grad')
         grad = parameter_shift_gradient_estimates(
                 self.hamiltonian, self.parametric_state, param_values, self.estimator
         )
-        print('test grad passed')
         
         return np.asarray([i.real for i in grad.values])
 
